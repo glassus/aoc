@@ -20,9 +20,6 @@ def valid(s):
     if (ch[inf-1] == car) ^ (ch[sup-1] == car) :
         test = 1
     
-#     if ch.count(car) > 0 :
-#         if (ch.index(car) + 1 == inf ) ^ (ch.index(car) + 1 == sup ) :
-#             test = 1
     return test
  
 assert valid('1-3 a: abcde') ==  True
