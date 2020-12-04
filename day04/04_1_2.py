@@ -5,7 +5,6 @@ def create_dict_from_many_lines(list_of_lines):
     dct = {}
     for line in list_of_lines :
         temp_list = line.split(" ")
-        #print("temp_list", temp_list)
         for k in temp_list :
             decomp = k.split(":")
             dct[decomp[0]] = decomp[1]
@@ -26,10 +25,8 @@ def valid1(passport) :
 
 
 def valid2(passport) :
-    champs_requis = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
-    for champ in champs_requis :
-        if champ not in passport.keys() :
-            return False
+    if not valid1(passport):
+        return False
     
     if not 1920 <= int(passport['byr']) <= 2002 :
         return False
