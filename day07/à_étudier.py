@@ -22,7 +22,7 @@ def day7():
     shiny_gold_bag = 'shiny gold bag'
     bags[shiny_gold_bag] = dict()
 
-    with open('data/day7.txt', 'r') as f:
+    with open('input.txt', 'r') as f:
         for line in f.read().splitlines():
             parent, children = re.match(r'(.+?)s? contain (.+)', line).groups()
             children = re.findall(r'(\d) ([ a-z]+bag)?', children)

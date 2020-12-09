@@ -52,6 +52,7 @@ def parcours(inst):
             if res[0] == 1:
                 return res[1]
 
-print(c-time.time())
-print(parcours(inst))   
+
+print(parcours(inst))
+print(time.time()-c)
     
