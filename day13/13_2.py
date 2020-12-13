@@ -10,12 +10,7 @@ for k in range(len(bus_ids)):
     if bus_ids[k] != 'x':
         bus_delay[int(bus_ids[k])] = k
 
-bus_delay = {29: 0, 41: 19, 37: 23, 653: 29, 13: 42, 17: 46, 23: 52, 823: 60, 19: 79}
-
 bus = list(bus_delay.keys())
-
-
-
 
 N = 1
 for k in bus:
