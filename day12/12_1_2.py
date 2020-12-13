@@ -3,8 +3,8 @@ import numpy.linalg as alg
 
 
 
-raw_data = open("input.txt").read().split('\n')[:-1]
-#raw_data = open("input_test.txt").read().split('\n')[:-1]
+raw_data = open("inputB.txt").read().split('\n')[:-1]
+raw_data = open("input_test_B.txt").read().split('\n')[:-1]
 
 instructions = [(data[0], int(data[1:])) for data in raw_data]
 
@@ -37,6 +37,6 @@ for inst in instructions :
         boussole = boussole.dot(mat_rot(-val))
     if lettre == 'R':
         boussole = boussole.dot(mat_rot(val))
-    
+    print(boussole, pos)
     
 print(abs(pos[0]) + abs(pos[1]))
