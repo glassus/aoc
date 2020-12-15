@@ -1,5 +1,6 @@
+from time import time
 from copy import deepcopy
-
+c=time()
 raw_data = open("input.txt").read().split('\n')[:-1]
 #raw_data = open("input_test2.txt").read().split('\n')[:-1]
 
@@ -74,3 +75,4 @@ for line in raw_data:
 #
 sol = sum([mem[k] for k in mem])
 print(sol)
+print(time()-c)
