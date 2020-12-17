@@ -1,7 +1,7 @@
 import numpy as np
 
 raw_data = open("input.txt").read().split('\n')
-#raw_data = open("input_test.txt").read().split('\n')
+raw_data = open("input_test.txt").read().split('\n')
 
 
 def create_start_matrix(raw_data):
@@ -25,14 +25,11 @@ def plongement(M):
     
 def nb_voisins(M, k, i, j):
     voisins = 0
-    for x in (i - 1, i , i + 1):
-        for y in (j - 1, j , j + 1):
-            if M[k + 1][x][y] == 1 :
-                voisins += 1
-            if M[k - 1][x][y] == 1 :
-                voisins += 1
-            if M[k][x][y] == 1 and (x, y) != (i, j):
-                voisins += 1
+    for z in (k - 1, k , k + 1):
+        for x in (i - 1, i , i + 1):
+            for y in (j - 1, j , j + 1):
+                if M[z][x][y] == 1 and (z, x, y) != (k, i, j):
+                    voisins += 1
     return voisins
                 
 def life_cycle(M):
