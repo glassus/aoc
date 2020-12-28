@@ -1,31 +1,34 @@
+import time
+c = time.time()
+data = '389125467'
 data = '792845136'
-N = 10**6
-lst = [int(k) for k in data]
-for m in range(10, N+1):
-    lst.append(m)
+
+t_lst = [int(k) for k in data]
+lst = t_lst + [int(k) for k in range(10, 10**6 +1)]
 n = len(lst)
 
 i = 0
 def move(lst):
+    #test = lst.copy()
     global i
     #print(lst)
     curr_cup = lst[i]
     #print("curr", curr_cup)
-    cup1 = lst[(i + 1) % n]
-    cup2 = lst[(i + 2) % n]
-    cup3 = lst[(i + 3) % n]
+    cup1 = lst.pop((i + 1) % n)
+    cup2 = lst.pop((i + 1) % n)
+    cup3 = lst.pop((i + 1) % n)
     #print('pick up :', cup1, cup2, cup3)
-    lst.remove(cup1)
-    lst.remove(cup2)
-    lst.remove(cup3)
+    #lst.remove(cup1)
+    #lst.remove(cup2)
+    #lst.remove(cup3)
     
     dest_cup = curr_cup - 1
-    if dest_cup < min(lst):
-        dest_cup = max(lst)
+    if dest_cup == 0:
+        dest_cup = 10**6
     while dest_cup in (cup1, cup2, cup3):
         dest_cup -= 1
-        if dest_cup < min(lst):
-            dest_cup = max(lst)
+        if dest_cup == 0:
+            dest_cup = 10**6
     #print('destination :', dest_cup)
     
     i_dest = lst.index(dest_cup)
@@ -36,16 +39,16 @@ def move(lst):
     i = lst.index(curr_cup)
     i = (i+1)%n
     
-d = 1   
-for k in range(10**7):
-    if k == 10**d:
-        print(k)
-        d += 1
+    
+for _ in range(10**3):
     #print("-------")
     #print("move ", _+1)
+    #print(lst)
     move(lst)
     
 i1 = lst.index(1)
-mot1 = lst[i1+1]
-mot2 = lst[i1+2]
-print(mot1*mot2)
+final = lst[(i1+1) %n] * lst[(i1+2) % n]
+
+print(final)
+print(time.time()-c)
+#bf 19 secondes pour 10**7

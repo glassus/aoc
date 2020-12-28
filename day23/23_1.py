@@ -36,9 +36,9 @@ def move(lst):
     
     
 for _ in range(10):
-    print("-------")
-    print("move ", _+1)
-    print(lst)
+    #print("-------")
+    #print("move ", _+1)
+    #print(lst)
     move(lst)
     
 i1 = lst.index(1)
